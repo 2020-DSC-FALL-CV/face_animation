@@ -6,5 +6,5 @@
 
 ---
 reference
-1. CartoonGAN github: [CartoonGAN-Test-Pytorch-Torch] (https://github.com/Yijunmaverick/CartoonGAN-Test-Pytorch-Torch)
-   CartoonGAN paper: [paper] (https://openaccess.thecvf.com/content_cvpr_2018/CameraReady/2205.pdf)
+1. CartoonGAN github: [CartoonGAN-Test-Pytorch-Torch] (https://github.com/Yijunmaverick/CartoonGAN-Test-Pytorch-Torch, "CartoonGAN")
+   CartoonGAN paper: [paper] (https://openaccess.thecvf.com/content_cvpr_2018/CameraReady/2205.pdf, "paper" )
