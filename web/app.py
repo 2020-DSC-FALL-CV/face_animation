@@ -6,8 +6,7 @@ import shutil
 from werkzeug.datastructures import ImmutableMultiDict
 basedir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(os.path.join(basedir,"..","Face2Cartoon","test"))
-
-import cartoonize
+from cartoonize import Model
 
 
 load_folder = os.path.join(basedir,"static","images","uploads")
@@ -28,7 +27,8 @@ app.config['DROPZONE_DEFAULT_MESSAGE'] = '사진 업로드: 클릭하거나 파�
 app.config['DROPZONE_MAX_FILE_SIZE'] = 10
 ##################################################################
 dropzone = Dropzone(app)
-global tempfname, id
+cartoonize=Model()
+global tempfname, id 
 @app.route('/')
 def mainpage():
     return render_template('index.html')
@@ -73,7 +73,6 @@ def answer():
     global tempfname
     if request.method == 'GET':
         page = request.args.get('page', type=int, default=1)
-
         file_list = os.listdir(app.config['UPLOADED_PATH'])
         print('1')
         print(app.config['UPLOADED_PATH'])
@@ -96,4 +95,4 @@ def answer():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0")
