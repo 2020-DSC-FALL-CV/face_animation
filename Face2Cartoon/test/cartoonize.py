@@ -4,7 +4,7 @@ import numpy as np
 import tensorflow as tf 
 
 import sys
-sys.path.append('C:/Users/user/Document/GitHub/face_animation_ours/Face2Cartoon/test')
+sys.path.append('D:/git/cvfall/Face2Cartoon/test')
 from tqdm import tqdm
 import network
 import guided_filter
@@ -25,8 +25,9 @@ def resize_crop(image):
     
 
 def cartoonize(load_folder, save_folder):
-
-    model_path = 'C:/Users/user/Documents/GitHub/face_animation_ours/Face2Cartoon/model/saved_models'
+    basedir = os.path.abspath(os.path.dirname(__file__))
+    model_path = os.path.join(basedir,"..","model","saved_models")
+    # 'D:/git/cvfall/Face2Cartoon/model/saved_models'
     #load_folder = 'C:/Users/user/Documents/GitHub/face_animation_ours/Face2Cartoon/test/test_images'
     #save_folder = 'C:/Users/user/Documents/GitHub/face_animation_ours/Face2Cartoon/cartoonized_images'
 

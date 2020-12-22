@@ -4,18 +4,15 @@ import os
 import sys
 import shutil
 from werkzeug.datastructures import ImmutableMultiDict
-
-sys.path.insert(0, 'C:/Users/user/Documents/GitHub/face_animation_ours/Face2Cartoon/test')
-sys.path.insert(0, 'C:/Users/user/Documents/GitHub/face_animation_ours/Face2Cartoon/model/saved_models')
+basedir = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(os.path.join(basedir,"..","Face2Cartoon","test"))
 
 import cartoonize
 
-#load_folder = 'C:/Users/user/Documents/GitHub/face_animation_ours/Face2Cartoon/test/test_images'
-load_folder = 'C:/Users/user/Documents/GitHub/face_animation_ours/web/static/images/uploads'
-save_folder = 'C:/Users/user/Documents/GitHub/face_animation_ours/Face2Cartoon/cartoonized_images'
 
-basedir = os.path.abspath(os.path.dirname(__file__))
-upload_dir = os.path.join(basedir, 'static/images/uploads')
+load_folder = os.path.join(basedir,"static","images","uploads")
+save_folder = os.path.join(basedir,"..","Face2Cartoon","cartoonized_images")
+upload_dir = os.path.join(basedir, "static","images","uploads")
 app = Flask(__name__)
 app.config['UPLOADED_PATH'] = upload_dir
 
@@ -83,14 +80,15 @@ def answer():
         print(file_list)
         cartoonize.main(load_folder, save_folder)
 
-        cartoon_dir = 'C:/Users/user/Documents/GitHub/face_animation_ours/Face2Cartoon/cartoonized_images/'
+        cartoon_dir = os.path.join(basedir,"..","Face2Cartoon","cartoonized_images")
         cartoon_image= save_folder + '/' + tempfname
         print(tempfname)
         print('2')
         print(cartoon_image)
-        output_dir = './static/output/'
+
+        output_dir = os.path.join(basedir,'static','output')
         output_name = tempfname
-        shutil.move(cartoon_image,output_dir+output_name)
+        shutil.move(cartoon_image,os.path.join(output_dir,output_name))
         asked = 'output' +'/'+ tempfname
         print(asked)
         return render_template('Face2Cartoon_a.html', asked = asked)
