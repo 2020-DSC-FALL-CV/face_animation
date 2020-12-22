@@ -62,19 +62,19 @@ class Model(object):
         # saver.restore(sess, tf.train.latest_checkpoint(model_path))
         name_list = os.listdir(load_folder)
         for name in tqdm(name_list):
-            # try:
-            load_path = os.path.join(load_folder, name)
-            save_path = os.path.join(save_folder, name)
-            image = cv2.imread(load_path)
-            image = self.resize_crop(image)
-            batch_image = image.astype(np.float32)/127.5 - 1
-            batch_image = np.expand_dims(batch_image, axis=0)
-            output = self.session.run(self.final_out, feed_dict={self.input_photo: batch_image})
-            output = (np.squeeze(output)+1)*127.5
-            output = np.clip(output, 0, 255).astype(np.uint8)
-            cv2.imwrite(save_path, output)
-            # except:
-                # print('cartoonize {} failed'.format(load_path))
+            try:
+                load_path = os.path.join(load_folder, name)
+                save_path = os.path.join(save_folder, name)
+                image = cv2.imread(load_path)
+                image = self.resize_crop(image)
+                batch_image = image.astype(np.float32)/127.5 - 1
+                batch_image = np.expand_dims(batch_image, axis=0)
+                output = self.session.run(self.final_out, feed_dict={self.input_photo: batch_image})
+                output = (np.squeeze(output)+1)*127.5
+                output = np.clip(output, 0, 255).astype(np.uint8)
+                cv2.imwrite(save_path, output)
+            except:
+                print('cartoonize {} failed'.format(load_path))
 
 
     def main(self,load_folder , save_folder):
