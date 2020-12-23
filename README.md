@@ -9,5 +9,5 @@
 
 ---
 reference
-1. CartoonGAN github: [White-box-Cartoonization](https://github.com/SystemErrorWang/White-box-Cartoonization, "Cartoonization")    
-   CartoonGAN paper: [paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Wang_Learning_to_Cartoonize_Using_White-Box_Cartoon_Representations_CVPR_2020_paper.pdf, "paper" )
+1. CartoonGAN github: [White-box-Cartoonization](https://github.com/SystemErrorWang/White-box-Cartoonization , "Cartoonization")    
+   CartoonGAN paper: [paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Wang_Learning_to_Cartoonize_Using_White-Box_Cartoon_Representations_CVPR_2020_paper.pdf , "paper" )
